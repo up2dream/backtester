@@ -1,7 +1,7 @@
 classdef Order
     properties
         Ticket = 0
-        Type = OrderType.DEPOSIT
+        Type% = OrderType.DEPOSIT
         lots = 0
         Symbol
         OpenTime
@@ -11,7 +11,12 @@ classdef Order
         CloseTime
         ClosePrice
     end
-    
+    methods
+        function obj = Order()
+            %import trading.*
+            obj.Type = OrderType.DEPOSIT;
+        end
+    end
     methods
         function success = buy(obj)
             success = true;
