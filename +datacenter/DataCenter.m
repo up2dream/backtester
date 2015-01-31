@@ -5,9 +5,13 @@ classdef DataCenter < handle
         StateType_PAUSED = 2
         StateType_STOPPED = 3
     end
+    
     properties(Access=private)
-        state = datacenter.DataCenter.StateType_READY
         requestStop = false
+    end
+    
+    properties(SetAccess=private)
+        state = datacenter.DataCenter.StateType_READY
         dateStart
         dateEnd
         symbols = containers.Map()
