@@ -20,11 +20,8 @@ classdef FTImporter < datacenter.IImporter
                 end
                 for m = monthStart:monthEnd
                     fileName = self.calcDataFileName(symbol, y, m);
-                    tmpData = datacenter.impftfile(fileName);
-                    [row, ~] = size(tmpData);
-                    fprintf('Load data file: %s (%d rows)\n', fileName, row);
-                    data(dataRow:dataRow+row-1,:) = tmpData;
-                    dataRow = dataRow+row;
+                    data[dataRow,:] = datacenter.impftfile(fileName);
+                    [dataRow, dataColumn] = 
                 end
             end
         end

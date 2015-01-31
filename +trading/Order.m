@@ -14,7 +14,9 @@ classdef Order
     methods
         function obj = Order()
             %import trading.*
-            obj.Type = OrderType.DEPOSIT;
+            obj.Type = trading.OrderType.DEPOSIT;
+            trading.Signal;
+            market.Chart;
         end
     end
     methods

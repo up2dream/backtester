@@ -73,7 +73,8 @@ classdef DataCenter < handle
         function loadTickData(self, symbol)
             imp = datacenter.FTImporter();
             data = imp.importData(symbol, self.dateStart, self.dateEnd);
-            self.symbols(symbol) = data;
+            class(symbol)
+            self.symbols(symbol.c) = data;
         end
     end
 end
