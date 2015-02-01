@@ -81,6 +81,8 @@ classdef DataCenter < handle
             imp = datacenter.FTImporter();
             data = imp.importData(symbol, self.dateStart, self.dateEnd);
             self.symbols(symbol) = data;
+            delete(imp)
+            clear imp
         end
     end
 end
