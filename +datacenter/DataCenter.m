@@ -19,6 +19,7 @@ classdef DataCenter < handle
     
     events
         Tick
+        DataLoaded
     end
     
     methods
@@ -72,6 +73,8 @@ classdef DataCenter < handle
             for i=1:size
                 obj.loadTickData(keys{i});
             end
+            
+            notify(obj, 'DataLoaded');
         end
         
         function loadTickData(self, symbol)

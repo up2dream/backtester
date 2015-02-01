@@ -1,5 +1,14 @@
-classdef Market
-    properties
+classdef Market < handle
+    properties(Access=private)
+        dataCenter
+    end
+    
+    methods
+        function obj = Market(dataCenter)
+            obj.dataCenter = dataCenter;
+            
+            addlistener(obj.dataCenter, 'DataLoaded', @obj.onDataLoaded);
+        end
     end
     
     methods
@@ -8,5 +17,10 @@ classdef Market
         end
     end
     
+    methods
+        function onDataLoaded(self, source, eventData)
+            disp('data loaded');
+        end
+    end
 end
 
